@@ -21,7 +21,7 @@ public class SpringbootWebscrapApplication {
 			String authorList=div.select("div.list-authors").text();
 			System.out.println("Authors Name"+authorList);
 		}
-		
+
 
 	}
 }
