@@ -1,12 +1,17 @@
 package com.springbootwebscrap.model;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 public class Document {
 
     private String title;
-    private String author;
+    //stored unique data
+    private Set<Author> authors;
 
     public Document() {
-        
+
     }
 
     public String getTitle() {
@@ -17,11 +22,11 @@ public class Document {
         this.title = title;
     }
 
-    public String getAuthor() {
-        return author;
+    public Set<Author> getAuthors() {
+        return authors;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
+    public void setAuthors(Set<Author> authors) {
+        this.authors = authors;
     }
 }
