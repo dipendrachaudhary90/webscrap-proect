@@ -13,7 +13,7 @@ public class SpringbootWebscrapApplication {
 
 		Document doc=(Document) Jsoup.connect("https://arxiv.org/list/cs.SI/recent").timeout(6000).get();
 		Elements divs = doc.select("dl");
-		int i=0;
+
 		for (Element div : divs.select("dd")) {
 
 			String title=div.select("div.list-title").text();
@@ -21,7 +21,7 @@ public class SpringbootWebscrapApplication {
 			String authorList=div.select("div.list-authors").text();
 			System.out.println("Authors Name"+authorList);
 		}
-		i++;
+		
 
 	}
 }
