@@ -9,7 +9,9 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public  class ArxivDocumentService {
 
@@ -24,17 +26,24 @@ public  class ArxivDocumentService {
             ArxivDocument obj = new ArxivDocument();
             String title = div.select("div.list-title").text();
             obj.setTitle(title);
+            String combinedAuthorName=div.select("div.list-authors a").text();
+            obj.setAuthors(getAuthors(combinedAuthorName));
             listOfDocument.add(obj);
-
-//            String author = div.select("div.list-authors").text();
-//            obj.setAuthors(author);
-//            Author author=new Author();
-//            author.setName(div.select("div.list-authors").text());
-//            listOfDocument.add(author);
-
 
         }
         return listOfDocument;
+    }
+    private Set<Author> getAuthors(String authorNames){
+        String[] splitAuthorNames= authorNames.split(" ");
+        Set<Author> authors = new HashSet<>();
+        for (int i = 0; i < splitAuthorNames.length; i++) {
+               Author author=new Author();
+               author.setName(splitAuthorNames[i]);
+               authors.add(author);
+
+        }
+        return authors;
+
     }
 }
 

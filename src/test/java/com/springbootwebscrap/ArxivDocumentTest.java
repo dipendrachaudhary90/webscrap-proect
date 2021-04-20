@@ -2,7 +2,7 @@ package com.springbootwebscrap;
 
 import com.springbootwebscrap.model.ArxivDocument;
 import com.springbootwebscrap.service.ArxivDocumentService;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.io.IOException;
 import java.util.List;

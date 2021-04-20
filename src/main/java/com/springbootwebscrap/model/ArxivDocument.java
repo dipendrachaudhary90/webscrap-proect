@@ -9,6 +9,7 @@ public class ArxivDocument {
     //stored unique data
     private Set<Author> authors;
 
+
     public ArxivDocument() {
 
     }
@@ -18,7 +19,7 @@ public class ArxivDocument {
         return "ArxivDocument{" +
                 "title='" + title + '\'' +
                 ", authors=" + authors +
-                '}';
+                '}'+"\n";
     }
 
     public String getTitle() {

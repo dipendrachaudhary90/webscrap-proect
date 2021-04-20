@@ -1,6 +1,6 @@
 package com.springbootwebscrap.model;
 
-public class Author extends ArxivDocument {
+public class Author {
 
     private String name;
 
@@ -10,5 +10,12 @@ public class Author extends ArxivDocument {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Author{" +
+                "name='" + name + '\'' +
+                '}'+"\n";
     }
 }
