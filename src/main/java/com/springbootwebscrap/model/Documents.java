@@ -10,11 +10,6 @@ public class Documents {
     //stored unique data
     private Set<Author> authors;
 
-    public Documents(String title) {
-        this.title = title;
-        this.authors = authors;
-    }
-
     public Documents() {
 
     }
