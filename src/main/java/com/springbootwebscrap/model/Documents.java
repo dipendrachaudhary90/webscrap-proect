@@ -4,16 +4,20 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Document {
+public class Documents {
 
     private String title;
     //stored unique data
     private Set<Author> authors;
 
-    public Document() {
-
+    public Documents(String title) {
+        this.title = title;
+        this.authors = authors;
     }
 
+    public Documents() {
+
+    }
     public String getTitle() {
         return title;
     }
