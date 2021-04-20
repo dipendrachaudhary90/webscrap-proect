@@ -1,12 +1,11 @@
 package com.springbootwebscrap.model;
 
-import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public class ArxivDocument {
 
     private String title;
+
     //stored unique data
     private Set<Author> authors;
 
@@ -37,4 +36,5 @@ public class ArxivDocument {
     public void setAuthors(Set<Author> authors) {
         this.authors = authors;
     }
+
 }
