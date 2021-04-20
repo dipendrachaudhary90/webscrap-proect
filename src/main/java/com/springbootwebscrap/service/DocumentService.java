@@ -1,7 +1,7 @@
 package com.springbootwebscrap.service;
 
 
-import com.springbootwebscrap.model.Documents;
+import com.springbootwebscrap.model.ArxivDocument;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -12,18 +12,18 @@ import java.util.List;
 
 public class DocumentService {
 
-    public static List<Documents> fetch() throws IOException {
+    public List<ArxivDocument> fetch() throws IOException {
         Document doc = Jsoup.connect("https://arxiv.org/list/cs.SI/recent").timeout(6000).get();
         Elements divs = doc.select("dl");
 
-        List<Documents> listOfDocument = new ArrayList<>();
+        List<ArxivDocument> listOfDocument = new ArrayList<>();
 
         for (Element div : divs.select("dd")) {
 
-            Documents obj = new Documents();
+            ArxivDocument obj = new ArxivDocument();
             String title = div.select("div.list-title").text();
             obj.setTitle(title);
-//            System.out.println(obj);
+            System.out.println(obj);
 //
 //            obj.setAuthors(div.select("div.list-authors").text());
 //            listOfDocument.add(obj.getAuthors());

@@ -9,8 +9,7 @@ import java.io.IOException;
 public class SpringbootWebscrapApplication {
 
 	public static void main(String[] args) throws IOException {
-//		SpringApplication.run(SpringbootWebscrapApplication.class, args);
-		System.out.println(DocumentService.fetch());
+		SpringApplication.run(SpringbootWebscrapApplication.class, args);
 
 	}
 }

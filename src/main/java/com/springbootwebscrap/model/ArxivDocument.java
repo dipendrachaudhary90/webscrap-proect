@@ -4,15 +4,24 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Documents {
+public class ArxivDocument {
 
     private String title;
     //stored unique data
     private Set<Author> authors;
 
-    public Documents() {
+    public ArxivDocument() {
 
     }
+
+    @Override
+    public String toString() {
+        return "ArxivDocument{" +
+                "title='" + title + '\'' +
+                ", authors=" + authors +
+                '}';
+    }
+
     public String getTitle() {
         return title;
     }
