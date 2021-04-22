@@ -1,13 +1,14 @@
 package com.springbootwebscrap.model;
 
+import java.util.List;
 import java.util.Set;
 
 public class ArxivDocument {
 
     private String title;
 
-    //stored unique data
-    private Set<Author> authors;
+    //to stored orderly
+    private List<Author> authors;
 
 
     public ArxivDocument() {
@@ -30,12 +31,11 @@ public class ArxivDocument {
         this.title = title;
     }
 
-    public Set<Author> getAuthors() {
+    public List<Author> getAuthors() {
         return authors;
     }
 
-    public void setAuthors(Set<Author> authors) {
+    public void setAuthors(List<Author> authors) {
         this.authors = authors;
     }
-
 }
