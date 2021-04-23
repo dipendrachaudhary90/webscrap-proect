@@ -15,10 +15,11 @@ import java.util.List;
 public class ArxivDocumentService {
 
     public static final String ARXIV_BASE_PATH = "https://arxiv.org";
+    public static final String ARXIV_BASE_PATH_URL = "https://arxiv.org/list/cs.SI/recent";
 
 
     public List<ArxivDocument> fetch() throws IOException {
-        Document doc = Jsoup.connect("https://arxiv.org/list/cs.SI/recent").userAgent("Google chrome").get();
+        Document doc = Jsoup.connect(ARXIV_BASE_PATH_URL).userAgent("Google chrome").get();
         Elements divs = doc.select("dl");
         Elements pdfs = doc.getElementsByTag("span.list-identifier");
 
@@ -37,24 +38,22 @@ public class ArxivDocumentService {
 
 
                 Element previousSibling = element.previousElementSibling();
-               String pdf =previousSibling.select("a").get(2).attr("href");
+                String pdf = previousSibling.select("a").get(2).attr("href");
 
-                String pdfLink = ARXIV_BASE_PATH +pdf;
+                String pdfLink = ARXIV_BASE_PATH + pdf;
                 obj.setPdf(pdfLink);
 
+                String Abstract = previousSibling.select("a").get(1).attr("href");
 
-                Element previousSiblingAbstract = element.previousElementSibling();
-                String pdfAbstract =previousSiblingAbstract.select("a").get(1).attr("href");
-//                String abstractLink = ARXIV_BASE_PATH +pdfAbstract;
-                Document con = null;
+                Document jsoupConnect = null;
                 try {
-                    con = (Document) Jsoup.connect("https://arxiv.org/"+pdfAbstract).userAgent("Google chrome").get();
+                    jsoupConnect = Jsoup.connect(ARXIV_BASE_PATH + Abstract).userAgent("Google chrome").get();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                Elements absContent  = con.select("div#abs");
-                String sbdAbstract =absContent.select("blockquote.abstract").text().replace("Abstract:", "");
-              obj.setAbstractPdf(sbdAbstract);
+                Elements selectContent = jsoupConnect.select("div#abs");
+                String abstractContent = selectContent.select("blockquote.abstract").text().replace("Abstract:", "");
+                obj.setAbstractPdf(abstractContent);
 
                 listOfDocument.add(obj);
 
@@ -74,6 +73,8 @@ public class ArxivDocumentService {
         return authors;
 
     }
+
+
 }
 
 
