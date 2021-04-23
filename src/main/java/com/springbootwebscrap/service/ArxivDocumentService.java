@@ -43,16 +43,8 @@ public class ArxivDocumentService {
                 String pdfLink = ARXIV_BASE_PATH + pdf;
                 obj.setPdf(pdfLink);
 
-                String Abstract = previousSibling.select("a").get(1).attr("href");
-
-                Document jsoupConnect = null;
-                try {
-                    jsoupConnect = Jsoup.connect(ARXIV_BASE_PATH + Abstract).userAgent("Google chrome").get();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                Elements selectContent = jsoupConnect.select("div#abs");
-                String abstractContent = selectContent.select("blockquote.abstract").text().replace("Abstract:", "");
+                String abstractLink = previousSibling.select("a").get(1).attr("href");
+                String abstractContent = getAbstractContent(abstractLink);
                 obj.setAbstractPdf(abstractContent);
 
                 listOfDocument.add(obj);
@@ -74,6 +66,18 @@ public class ArxivDocumentService {
 
     }
 
+    private String getAbstractContent(String Abstract) {
+        Document jsoupConnect = null;
+        try {
+            jsoupConnect = Jsoup.connect(ARXIV_BASE_PATH + Abstract).userAgent("Google chrome").get();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Elements selectContent = jsoupConnect.select("div#abs");
+        String abstractContent = selectContent.select("blockquote.abstract").text().replace("Abstract:", "");
+
+        return abstractContent;
+    }
 
 }
 
