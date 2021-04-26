@@ -1,6 +1,5 @@
 package com.springbootwebscrap.service;
 
-
 import com.springbootwebscrap.model.ArxivDocument;
 import com.springbootwebscrap.model.Author;
 import org.jsoup.Jsoup;
