@@ -10,10 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ArxivDocumentMapper {
-    public static final String CONTENTS = "contents";
-    public static final String FILE_NAME = "filename";
-    public static final String FILE_PATH = "filepath";
-    public static final int MAX_SEARCH = 10;
+    
     public static final String TITLE = "title";
     public static final String ABSTRACT = "abstract";
     public static final String PDFLINK = "pdflink";
