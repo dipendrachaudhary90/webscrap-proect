@@ -50,9 +50,9 @@ public class ArxivDocument {
     @Override
     public String toString() {
         return "ArxivDocument{" +
-                "title='" + title + '\''+"\n" +
+                "title='" + title + '\'' + "\n" +
                 ", pdf='" + pdf + '\'' +
-                ", abstractPdf='" + abstractPdf + '\''+"\n" +
+                ", abstractPdf='" + abstractPdf + '\'' + "\n" +
                 ", authors=" + authors +
                 '}';
     }
