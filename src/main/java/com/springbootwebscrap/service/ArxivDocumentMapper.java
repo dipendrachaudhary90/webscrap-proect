@@ -1,9 +1,8 @@
 package com.springbootwebscrap.service;
 
 import com.springbootwebscrap.model.ArxivDocument;
-import org.jsoup.nodes.Document;
+import org.apache.lucene.document.Document;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ArxivDocumentMapper {
@@ -12,7 +11,7 @@ public class ArxivDocumentMapper {
     public static final String FILE_PATH = "filepath";
     public static final int MAX_SEARCH = 10;
 
-    public List<Document> mapArxivToLuceneDocument(List<ArxivDocument> arxivDocument){
+    public List<Document> mapArxivToLuceneDocument(List<ArxivDocument> arxivDocument) {
 
         return null;
     }

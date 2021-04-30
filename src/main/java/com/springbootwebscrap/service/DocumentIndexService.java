@@ -9,15 +9,15 @@ public class DocumentIndexService {
 
     }
 
-    public void cleansIndexDirectory(){
+    public void cleansIndexDirectory() {
 
     }
 
-    public void openIndexDirectory(){
+    public void openIndexDirectory() {
 
     }
 
-    public void closeIndexDirectory(){
+    public void closeIndexDirectory() {
 
     }
 }
