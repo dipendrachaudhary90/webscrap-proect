@@ -14,7 +14,7 @@ public class ArxivDocumentMapperTest {
         List<ArxivDocument> documents = new ArrayList<>();
         ArxivDocument document = new ArxivDocument();
         document.setTitle("documentString");
-        document.setAbstractPdf("abstract");
+        document.setAbstractContent("abstract");
         document.setPdf("pdfLink");
 
         documents.add(document);

@@ -44,7 +44,7 @@ public class ArxivDocumentService {
 
                 String abstractLink = previousSibling.select("a").get(1).attr("href");
                 String abstractContent = getAbstractContent(abstractLink);
-                obj.setAbstractPdf(abstractContent);
+                obj.setAbstractContent(abstractContent);
 
                 listOfDocument.add(obj);
 

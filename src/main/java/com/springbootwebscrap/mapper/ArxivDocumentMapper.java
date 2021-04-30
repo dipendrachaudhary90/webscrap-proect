@@ -26,7 +26,7 @@ public class ArxivDocumentMapper {
             IndexableField title = new TextField(TITLE, arxivDocument.getTitle(), Field.Store.YES);
             document.add(title);
 
-            IndexableField abstractField = new TextField(ABSTRACT, arxivDocument.getAbstractPdf(), Field.Store.YES);
+            IndexableField abstractField = new TextField(ABSTRACT, arxivDocument.getAbstractContent(), Field.Store.YES);
             document.add(abstractField);
             listOfDocument.add(document);
 
