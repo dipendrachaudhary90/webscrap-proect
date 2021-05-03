@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ArxivDocumentMapper {
-    
+
     public static final String TITLE = "title";
     public static final String ABSTRACT = "abstract";
     public static final String PDFLINK = "pdflink";
@@ -25,12 +25,11 @@ public class ArxivDocumentMapper {
 
             IndexableField abstractField = new TextField(ABSTRACT, arxivDocument.getAbstractContent(), Field.Store.YES);
             document.add(abstractField);
-            listOfDocument.add(document);
 
             IndexableField abstractLink = new TextField(PDFLINK, arxivDocument.getPdf(), Field.Store.YES);
             document.add(abstractLink);
-            listOfDocument.add(document);
 
+            listOfDocument.add(document);
 
         }
 
