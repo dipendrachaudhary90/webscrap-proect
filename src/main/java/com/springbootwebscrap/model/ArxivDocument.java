@@ -7,7 +7,6 @@ public class ArxivDocument {
     private String title;
     private String pdf;
     private String abstractContent;
-    private String content;
 
     //to stored orderly
     private List<Author> authors;
@@ -48,21 +47,12 @@ public class ArxivDocument {
         this.authors = authors;
     }
 
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
     @Override
     public String toString() {
         return "ArxivDocument{" +
-                "title='" + title + '\'' +
+                "title='" + title + '\'' + "\n" +
                 ", pdf='" + pdf + '\'' +
-                ", abstractContent='" + abstractContent + '\'' +
-                ", content='" + content + '\'' +
+                ", abstractPdf='" + abstractContent + '\'' + "\n" +
                 ", authors=" + authors +
                 '}';
     }

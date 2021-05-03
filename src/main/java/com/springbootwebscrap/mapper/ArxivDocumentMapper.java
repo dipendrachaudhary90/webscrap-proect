@@ -14,7 +14,7 @@ public class ArxivDocumentMapper {
     public static final String TITLE = "title";
     public static final String ABSTRACT = "abstract";
     public static final String PDFLINK = "pdflink";
-    public static final String CONTENT="TITLE +ABSTRACT";
+    public static final String CONTENT="content";
 
     public List<Document> mapArxivToLuceneDocument(List<ArxivDocument> arxivDocuments) {
         List<Document> listOfDocument = new ArrayList<>();
@@ -29,8 +29,8 @@ public class ArxivDocumentMapper {
 
             IndexableField abstractLink = new TextField(PDFLINK, arxivDocument.getPdf(), Field.Store.YES);
             document.add(abstractLink);
-
-            IndexableField content= new TextField(CONTENT,arxivDocument.getContent(),Field.Store.YES);
+            String titleAndAbstract=arxivDocument.getTitle()+arxivDocument.getAbstractContent();
+            IndexableField content = new TextField(CONTENT,titleAndAbstract,Field.Store.YES);
             document.add(content);
 
             listOfDocument.add(document);
