@@ -10,8 +10,9 @@ public class DocumentSearchServiceTest {
 
     @Test
     public void searchLists() throws IOException {
-        ArxivDocumentService service = new ArxivDocumentService();
-        List<ArxivDocument> arxivDocuments = service.fetch();
+        DocumentSearchService searches = new DocumentSearchService();
+        searches.openIndexDirectory();
+        List<ArxivDocument> arxivDocuments = searches.getAllSearchList("Recovering ");
         System.out.println(arxivDocuments);
     }
 }
