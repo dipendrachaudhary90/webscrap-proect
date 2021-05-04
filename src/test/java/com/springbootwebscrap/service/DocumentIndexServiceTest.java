@@ -20,7 +20,6 @@ public class DocumentIndexServiceTest {
         indexService.openIndexDirectory();
         indexService.index(listOfDocument);
         indexService.closeIndexDirectory();
-
     }
 
     private List<ArxivDocument> getArxivDocuments() throws IOException {

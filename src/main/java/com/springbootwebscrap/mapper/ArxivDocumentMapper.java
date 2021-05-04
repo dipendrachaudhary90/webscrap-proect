@@ -9,13 +9,19 @@ import org.apache.lucene.index.IndexableField;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+* This class converts ArxivDocument to lucene document
+*/
 public class ArxivDocumentMapper {
 
     public static final String TITLE = "title";
     public static final String ABSTRACT = "abstract";
     public static final String PDFLINK = "pdflink";
     public static final String CONTENT="content";
-
+/*
+* This method map the ArxivDocument to lucene document
+* takes a List of ArxivDocument and return a List of Lucene Document
+*  */
     public List<Document> mapArxivToLuceneDocument(List<ArxivDocument> arxivDocuments) {
         List<Document> listOfDocument = new ArrayList<>();
 
@@ -34,9 +40,7 @@ public class ArxivDocumentMapper {
             document.add(content);
 
             listOfDocument.add(document);
-
         }
-
         return listOfDocument;
     }
 }

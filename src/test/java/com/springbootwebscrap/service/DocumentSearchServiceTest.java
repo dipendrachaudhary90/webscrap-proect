@@ -11,8 +11,7 @@ public class DocumentSearchServiceTest {
     @Test
     public void searchLists() throws IOException {
         DocumentSearchService searches = new DocumentSearchService();
-        searches.openIndexDirectory();
-        List<ArxivDocument> arxivDocuments = searches.getAllSearchList("Recovering ");
+        List<ArxivDocument> arxivDocuments = searches.getAllSearchList("Learning");
         System.out.println(arxivDocuments);
     }
 }

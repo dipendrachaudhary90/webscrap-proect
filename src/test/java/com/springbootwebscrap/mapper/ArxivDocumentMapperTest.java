@@ -10,7 +10,6 @@ public class ArxivDocumentMapperTest {
 
     @Test
     public void mapperTest() {
-
         List<ArxivDocument> documents = new ArrayList<>();
         ArxivDocument document = new ArxivDocument();
         document.setTitle("documentString");
@@ -21,8 +20,5 @@ public class ArxivDocumentMapperTest {
 
         ArxivDocumentMapper mapperService = new ArxivDocumentMapper();
         mapperService.mapArxivToLuceneDocument(documents);
-
     }
-
-
 }

@@ -52,7 +52,7 @@ public class ArxivDocument {
         return "ArxivDocument{" +
                 "title='" + title + '\'' + "\n" +
                 ", pdf='" + pdf + '\'' +
-                ", abstractPdf='" + abstractContent + '\'' + "\n" +
+                ", abstractContent='" + abstractContent + '\'' + "\n" +
                 ", authors=" + authors +
                 '}';
     }
