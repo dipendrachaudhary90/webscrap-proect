@@ -15,12 +15,14 @@ import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 import org.apache.lucene.util.QueryBuilder;
 import org.apache.lucene.util.Version;
+import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class DocumentSearchService {
 
     public static final String indexDirectory = "C:\\Users\\lenovo\\Desktop\\lucene folder";
@@ -31,6 +33,7 @@ public class DocumentSearchService {
     public DocumentSearchService() throws IOException {
         openIndexDirectory();
     }
+
 /* This method takes String query and return list of ArxivDocument
 * obtain the ScoreDocs that satisfied the query from the TopDocs returned from the search method */
     public List<ArxivDocument> getAllSearchList(String queryStr) throws IOException {
@@ -49,10 +52,12 @@ public class DocumentSearchService {
             Document d = searcher.doc(docId);
             String title = d.getField(ArxivDocumentMapper.TITLE).stringValue();
             String abstractContent = d.getField(ArxivDocumentMapper.ABSTRACT).stringValue();
+            String pdfLink = d.getField(ArxivDocumentMapper.PDFLINK).stringValue();
             ArxivDocument arxivDocument = new ArxivDocument();
             arxivDocument.setTitle(title);
 
             arxivDocument.setAbstractContent(abstractContent);
+            arxivDocument.setPdf(pdfLink);
             listOfSearched.add(arxivDocument);
         }
         return listOfSearched;
