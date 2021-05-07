@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container my-2">
+    <h2><center>List of All Data</center></h2>
+    <table border="1" class = "table table-striped table-responsive-md">
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Abstract Content</th>
+            <th>PdfLink</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="lists : ${listAllData}">
+            <td th:text="${lists.title}"></td>
+            <td th:text="${lists.abstractContent}"></td>
+            <td th:text="${lists.pdf}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

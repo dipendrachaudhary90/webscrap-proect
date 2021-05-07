@@ -1,27 +1,13 @@
 package com.springbootwebscrap;
 
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.io.IOException;
-
+@SpringBootApplication
 public class SpringbootWebscrapApplication {
 
-	public static void main(String[] args) throws IOException {
-
-		Document doc=(Document) Jsoup.connect("https://arxiv.org/list/cs.SI/recent").timeout(6000).get();
-		Elements divs = doc.select("dl");
-
-		for (Element div : divs.select("dd")) {
-
-			String title=div.select("div.list-title").text();
-			System.out.println("Document Name:"+title);
-			String authorList=div.select("div.list-authors").text();
-			System.out.println("Authors Name"+authorList);
-		}
-		
+	public static void main(String[] args){
+		SpringApplication.run(SpringbootWebscrapApplication.class, args);
 
 	}
 }
