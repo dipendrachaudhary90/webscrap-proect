@@ -2,6 +2,7 @@ package com.springbootwebscrap.controller;
 
 import com.springbootwebscrap.model.ArxivDocument;
 import com.springbootwebscrap.service.DocumentSearchService;
+import org.apache.lucene.search.highlight.InvalidTokenOffsetsException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,7 +23,7 @@ public class ArxivDocumentController {
     /*
     * This method return List of ArxivDocument which takes String query */
     @GetMapping("/listAll")
-    public List<ArxivDocument> getAllLists(@RequestParam("query") String query, Model model) throws IOException {
+    public List<ArxivDocument> getAllLists(@RequestParam("query") String query, Model model) throws IOException, InvalidTokenOffsetsException {
 
         return documentSearchService.getAllSearchList(query);
     }

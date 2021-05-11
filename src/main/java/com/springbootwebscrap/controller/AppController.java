@@ -1,6 +1,7 @@
 package com.springbootwebscrap.controller;
 
 import com.springbootwebscrap.service.DocumentSearchService;
+import org.apache.lucene.search.highlight.InvalidTokenOffsetsException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,7 +28,7 @@ public class AppController {
     /*
     * In this method,Get Method and return home page and takes String query*/
     @GetMapping("/getAll")
-    public String getAllLists(@RequestParam("query") String query, Model model) throws IOException {
+    public String getAllLists(@RequestParam("query") String query, Model model) throws IOException, InvalidTokenOffsetsException {
         model.addAttribute("listAllData",documentSearchService.getAllSearchList(query));
         return "home";
     }
