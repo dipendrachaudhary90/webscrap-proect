@@ -4,6 +4,7 @@ import com.springbootwebscrap.mapper.ArxivDocumentMapper;
 import com.springbootwebscrap.model.ArxivDocument;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.TokenStream;
+import org.apache.lucene.analysis.en.EnglishAnalyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.DirectoryReader;
@@ -42,7 +43,7 @@ public class DocumentSearchService {
         List<ArxivDocument> listOfSearched = new ArrayList<>();
 
         IndexSearcher searcher = new IndexSearcher(indexReader);
-        Analyzer analyzer = new StandardAnalyzer(Version.LUCENE_46);
+        Analyzer analyzer = new EnglishAnalyzer(Version.LUCENE_46);
         QueryBuilder builder = new QueryBuilder(analyzer);
         Query query = builder.createBooleanQuery(ArxivDocumentMapper.CONTENT, queryStr);
 
@@ -67,7 +68,7 @@ public class DocumentSearchService {
             }
             TokenStream streams = TokenSources.getAnyTokenStream(indexReader, docId, ArxivDocumentMapper.ABSTRACT, d, analyzer);
             String abstractContent = d.getField(ArxivDocumentMapper.ABSTRACT).stringValue();
-            String[] fragsAbsContent = highLight.getBestFragments(streams, abstractContent, 100);
+            String[] fragsAbsContent = highLight.getBestFragments(streams, abstractContent,100);
             if(fragsAbsContent.length >0){
                 abstractContent=fragsAbsContent[0];
             }
