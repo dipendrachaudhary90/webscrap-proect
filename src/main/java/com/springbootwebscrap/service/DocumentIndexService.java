@@ -40,7 +40,7 @@ public class DocumentIndexService {
     * IndexeWriter will use the StrandardAnalyzer to analyze the text   */
     public void openIndexDirectory() throws IOException {
 //        Analyzer analyzer = new StandardAnalyzer(Version.LUCENE_46);
-        Analyzer analyzer =new EnglishAnalyzer(Version.LUCENE_46);
+        Analyzer analyzer = new EnglishAnalyzer(Version.LUCENE_46);
         IndexWriterConfig config = new IndexWriterConfig(Version.LUCENE_46,
                 analyzer);
         indexWriter = new IndexWriter(FSDirectory.open(indexDir),
