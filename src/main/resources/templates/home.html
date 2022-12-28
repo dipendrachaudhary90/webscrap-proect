@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link th:href="@{/main.css}" rel="stylesheet" />
 </head>
 <body>
 <div class="container my-2">
@@ -17,8 +18,8 @@
         </thead>
         <tbody>
         <tr th:each="lists : ${listAllData}">
-            <td th:text="${lists.title}"></td>
-            <td th:text="${lists.abstractContent}"></td>
+            <td th:utext="${lists.title}"></td>
+            <td th:utext="${lists.abstractContent}"></td>
             <td th:text="${lists.pdf}"></td>
         </tr>
         </tbody>
